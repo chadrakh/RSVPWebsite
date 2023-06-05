@@ -5,13 +5,12 @@ import GroomsTeam from "../grooms-team/GroomsTeam"
 const WeddingTeam = () => {
     return(
             <>
-            <Tabs>
-                <BridalTeam></BridalTeam>
-                <GroomsTeam></GroomsTeam>
-            </Tabs>
+                <Tabs>
+                    <BridalTeam></BridalTeam>
+                    <GroomsTeam></GroomsTeam>
+                </Tabs>
             </>
     )
-
 }
 
 export default WeddingTeam;

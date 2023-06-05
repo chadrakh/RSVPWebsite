@@ -14,8 +14,8 @@ export const Routes = () => {
     <Suspense fallback={<div className="container">Loading...</div>}>
       <BrowserRoutes>
         <Route path="/" element={<Landing />} />
-        <Route path="/rsvp" element={<RSVPForm />} />
         <Route path="/wedding-team" element={<WeddingTeam />} />
+        <Route path="/rsvp" element={<RSVPForm />} />
         <Route path="/gallery" element={<ImageGallery />} />
         <Route path="/contact" element={<ContactForm />} />
         {/* <Route path="*" element={<PageNotFound />} /> */}
