@@ -11,7 +11,7 @@ const Grid = styled.div`
 `;
 
 type Props = {
-  children: ReactElement[];
+  children: ReactElement;
 };
 
 const CardGrid: FC<Props> = () => {

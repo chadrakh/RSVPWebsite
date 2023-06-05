@@ -10,8 +10,8 @@ const StyledCard = styled.div`
 `;
 
 type Props = {
-    children: ReactElement;
-  };
+    children: ReactElement[];
+};
 
 const Card: FC<Props> = () => {
     return(
