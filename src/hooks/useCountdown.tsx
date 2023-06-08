@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-type CountdownValues = [number, number, number, number];
-
 const useCountdown = (targetDate: string): CountdownValues => {
   const countDownDate = new Date(targetDate).getTime();
 
@@ -30,5 +28,7 @@ const getReturnValues = (countDown: number): CountdownValues => {
 
   return [days, hours, minutes, seconds];
 };
+
+type CountdownValues = [number, number, number, number];
 
 export default useCountdown

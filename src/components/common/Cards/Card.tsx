@@ -9,10 +9,6 @@ const StyledCard = styled.div`
   background: rgba(255, 255, 240, 0);
 `;
 
-type Props = {
-    children: ReactElement[];
-};
-
 const Card: FC<Props> = () => {
     return(
         <StyledCard>
@@ -20,4 +16,7 @@ const Card: FC<Props> = () => {
     )
 }
 
+type Props = {
+    children: ReactElement[];
+};
 export default Card

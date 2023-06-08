@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import Text from "../../common/Headings/LandingText";
-import PrimaryButton from "../../common/Buttons/PrimaryButton";
+import StyledText from "../../common/Texts/StyledText";
+import PrimaryButton from "../../common/Buttons/Button";
 import CountdownTimer from '../../common/Countdown/CountdownTimer';
 import { WEDDING_DATE } from '../../../store/consts/consts';
 
@@ -28,24 +28,23 @@ const Body = styled.div`
     align-items: center;
 `
 
-// const Footer = styled.div``
-
 const Landing = () => {
     return(
     <>
         <>
             <Header>
-                <Text type={"primary"}>John & Dorcas</Text>
+                <StyledText type="header">John & Dorcas</StyledText>
             </Header>
 
 
             <SubHeader>
-                <Text type={"secondary"}>Save The Date</Text>
+                <StyledText type="subheader">Save The Date</StyledText>
             </SubHeader>
 
             <Body>
-                <Text type={"body"}>August 26th 2023</Text>
-                <Text type={"body"}>Bury Town Hall, BL9 0ST</Text>
+                <StyledText type="body" size="large">August 26th 2023</StyledText>
+                <StyledText type="body" padding={2} size="large">Bury Town Hall</StyledText>
+                <StyledText type="body" padding={1} size="large">BL9 0ST</StyledText>
                 <CountdownTimer targetDate={WEDDING_DATE}/>
                 <PrimaryButton>RSVP</PrimaryButton>
             </Body>

@@ -3,7 +3,7 @@ import NavBar from './components/features/Navbar/Navbar';
 import { lazy, Suspense } from 'react'
 import { Routes as BrowserRoutes, Route } from 'react-router-dom';
 import styled from "@emotion/styled";
-import background from "./assets/tempBg.jpg";
+import background from "./assets/background-dark-overlay.jpg";
 
 const Landing = lazy(async () => await import('./components/pages/landing/Landing'))
 const RSVPForm = lazy(async () => await import('./components/pages/rsvp-form/RSVPForm'))
@@ -26,7 +26,6 @@ const Background = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
   }
 `;
 

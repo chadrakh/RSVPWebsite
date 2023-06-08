@@ -7,9 +7,6 @@ const StyledList = styled.ul`
   justify-content: center;
 `;
 
-type Props = {
-  children: ReactElement[];
-};
 
 const Tabs: FC<Props> = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -30,6 +27,10 @@ const Tabs: FC<Props> = ({ children }) => {
       {children[selectedTab]}
     </div>
   );
+};
+
+type Props = {
+  children: ReactElement[];
 };
 
 export default Tabs;
