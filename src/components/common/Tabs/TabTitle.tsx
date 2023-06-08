@@ -21,14 +21,7 @@ const StyledListItem = styled.li`
   list-style-type: none;
 `;
 
-type TitleProps = {
-  title: string;
-  index: number;
-  setSelectedTab: (index: number) => void;
-  selectedTab: number;
-};
-
-const TabTitle: FC<TitleProps> = ({
+const TabTitle: FC<Props> = ({
   title,
   setSelectedTab,
   index,
@@ -46,6 +39,13 @@ const TabTitle: FC<TitleProps> = ({
       </StyledTitle>
     </StyledListItem>
   );
+};
+
+type Props = {
+  title: string;
+  index: number;
+  setSelectedTab: (index: number) => void;
+  selectedTab: number;
 };
 
 export default TabTitle;

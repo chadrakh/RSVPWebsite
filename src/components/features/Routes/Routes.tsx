@@ -6,7 +6,7 @@ const RSVPForm = lazy(async () => await import('../../pages/rsvp-form/RSVPForm')
 const WeddingTeam = lazy(async () => await import('../../pages/wedding-team/WeddingTeam'))
 const ImageGallery = lazy(async () => await import('../../pages/image-gallery/ImageGallery'))
 const ContactForm = lazy(async () => await import('../../pages/contact-form/ContactForm'))
-// const PageNotFound = lazy(async () => await import('../../pages/error/PageNotFound'))
+const PageNotFound = lazy(async () => await import('../../pages/error/PageNotFound'))
 
 export const Routes = () => {
   return (
@@ -18,7 +18,7 @@ export const Routes = () => {
         <Route path="/rsvp" element={<RSVPForm />} />
         <Route path="/gallery" element={<ImageGallery />} />
         <Route path="/contact" element={<ContactForm />} />
-        {/* <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="*" element={<PageNotFound />} />
       </BrowserRoutes>
     </Suspense>
     </>

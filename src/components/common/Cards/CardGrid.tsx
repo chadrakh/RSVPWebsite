@@ -9,12 +9,12 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 `;
 
-type Props = {
-    children: ReactNode;
-};
-
 const CardGrid: FC<Props> = () => {
     return <Grid></Grid>;
+};
+
+type Props = {
+  children: ReactNode;
 };
 
 export default CardGrid;

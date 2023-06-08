@@ -5,9 +5,10 @@ const StyledButton = styled.button`
   padding: 15px 50px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  font-size: 16px;
+  border: 0.3em solid white;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
   border-radius: 0;
   cursor: pointer;
   transition: all 0.3s;
@@ -19,10 +20,6 @@ const StyledButton = styled.button`
   }
 `;
 
-type Props = {
-    children: string;
-};
-
 const PrimaryButton : FC<Props> = ({ children }) => {
     return(
         <>
@@ -30,5 +27,9 @@ const PrimaryButton : FC<Props> = ({ children }) => {
         </>
     )
 }
+
+type Props = {
+  children: string;
+};
 
 export default PrimaryButton;

@@ -3,10 +3,6 @@ import useCountdown from '../../../hooks/useCountdown';
 import ExpiredNotice from './ExpiredNotice';
 import ShowCounter from './ShowCounter';
 
-type Props = {
-  targetDate: string;
-};
-
 const CountdownTimer: React.FC<Props> = ({ targetDate }) => {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
@@ -19,6 +15,10 @@ const CountdownTimer: React.FC<Props> = ({ targetDate }) => {
         }
         </>
     );
+};
+
+type Props = {
+  targetDate: string;
 };
 
 export default CountdownTimer;

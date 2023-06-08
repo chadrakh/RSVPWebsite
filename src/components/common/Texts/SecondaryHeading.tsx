@@ -6,14 +6,14 @@ const Heading = styled.p`
   font-family: "Parisienne",sans-serif;
 `;
 
-type Props = {
-    children: string;
-};
-
 const SecondaryHeading : FC<Props> = ({ children }) => {
     return(
         <Heading>{children}</Heading>
     )
 }
+
+type Props = {
+    children: string;
+};
 
 export default SecondaryHeading;

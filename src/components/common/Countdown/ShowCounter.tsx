@@ -8,28 +8,31 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
 `;
-
-type Props = {
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-  };
   
-  const ShowCounter: FC<Props> = ({
+const ShowCounter: FC<Props> = ({
     days,
     hours,
     minutes,
     seconds,
   }) => {
+
+    const isDanger = days <= 3;
+
     return (
         <StyledWrapper>
-            <DateTimeDisplay value={days} type={'Days'} isDanger={days <= 3} />
-            <DateTimeDisplay value={hours} type={'Hours'} isDanger={false} />
-            <DateTimeDisplay value={minutes} type={'Mins'} isDanger={false} />
-            <DateTimeDisplay value={seconds} type={'Secs'} isDanger={false} />
+            {days > 0 && <DateTimeDisplay value={days} unit='Days' isDanger={isDanger} />}
+            {(days > 0 && hours > 0) && <DateTimeDisplay value={hours} unit='Hours' isDanger={isDanger} />}
+            {(days > 0 && hours > 0 && minutes > 0)  && <DateTimeDisplay value={minutes} unit='Mins' isDanger={isDanger} />}
+            <DateTimeDisplay value={seconds} unit='Secs' isDanger={isDanger} />
         </StyledWrapper>
     );
   };
+
+type Props = {
+   days: number;
+   hours: number;
+   minutes: number;
+  seconds: number;
+};
 
 export default ShowCounter;

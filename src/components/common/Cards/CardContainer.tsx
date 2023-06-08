@@ -9,9 +9,6 @@ const Container = styled.div`
   flex: 1 1 auto;
 `;
 
-type Props = {
-  children: ReactElement;
-};
 
 const CardContainer: FC<Props> = () => {
     return(
@@ -19,5 +16,9 @@ const CardContainer: FC<Props> = () => {
         </Container>
     )
 }
+
+type Props = {
+  children: ReactElement;
+};
 
 export default CardContainer
