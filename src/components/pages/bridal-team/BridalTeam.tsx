@@ -8,14 +8,12 @@ const BridalTeam = () => {
         <>
             <Container>
                 <Grid>
-                    <>
                     {bridesmaidsArr.map(([name, link]) => (
                         <Card key={name}>
                             <img src={link} alt={name} />
                             <h2>{name}</h2>
                         </Card>
                     ))}
-                    </>
                 </Grid>
             </Container>
         </>

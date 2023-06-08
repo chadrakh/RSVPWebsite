@@ -11,6 +11,3 @@ export const groomsmenArr: string[][] = [
     ["name", "link"],
     ["name", "link"],
 ];
-
-// TS Map Declaration
-// https://howtodoinjava.com/typescript/maps/
