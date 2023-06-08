@@ -1,12 +1,20 @@
 import styled from '@emotion/styled';
+import PrimaryHeading from "../../common/Headings/PrimaryHeading";
+import SecondaryHeading from "../../common/Headings/SecondaryHeading";
 
 const LandingWrapper = styled.div`
   background-image: url(../../../assets/tempBg.jpg);
   background-size: cover;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const TextWrapper = styled.div`
+  display: block;
+  text-align: center;
+  margin: 0;
 `;
 
 // const LandingWrapper = styled.div`
@@ -26,7 +34,11 @@ const Landing = () => {
     return(
     <>
     <LandingWrapper>
-        You have landed.
+        <TextWrapper>
+            <PrimaryHeading>John & Dorcas</PrimaryHeading>
+            <SecondaryHeading>Save The Date</SecondaryHeading>
+            You have landed.
+        </TextWrapper>
     </LandingWrapper>
     </>
     )
