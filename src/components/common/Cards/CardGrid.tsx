@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
-import { FC, ReactElement } from 'react';
+import {FC, ReactElement} from 'react';
 
 const Grid = styled.div`
-  display: inline-block;
   gap: 10%;
   padding: 3vh;
   display: grid;
@@ -11,14 +10,11 @@ const Grid = styled.div`
 `;
 
 type Props = {
-  children: ReactElement;
+    children: ReactElement;
 };
 
-const CardGrid: FC<Props> = () => {
-    return(
-        <Grid>
-        </Grid>
-    )
-}
+const CardGrid: FC<Props> = ({ children }) => {
+    return <Grid>{children}</Grid>;
+};
 
-export default CardGrid
+export default CardGrid;

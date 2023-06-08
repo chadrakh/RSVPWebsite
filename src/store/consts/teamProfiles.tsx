@@ -1,15 +1,16 @@
-export const bridesmaidsMap = new Map();
+export const bridesmaidsArr : string[][] = [
+    ["Abi", "link"],
+    ["Belinda", "link"],
+    ["Maria", "link"],
+    ["Rosie", "link"]
+]
 
-bridesmaidsMap.set("Abi", "");
-bridesmaidsMap.set("Belinda", "");
-bridesmaidsMap.set("Maria", "");
-bridesmaidsMap.set("Rosie", "");
+export const groomsmenArr: string[][] = [
+    ["name", "link"],
+    ["name", "link"],
+    ["name", "link"],
+    ["name", "link"],
+];
 
-export const groomsmenMap = new Map();
-
-groomsmenMap.set("", "");
-groomsmenMap.set("", "");
-groomsmenMap.set("", "");
-groomsmenMap.set("", "");
-
+// TS Map Declaration
 // https://howtodoinjava.com/typescript/maps/

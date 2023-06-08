@@ -6,8 +6,8 @@ const WeddingTeam = () => {
     return(
             <>
                 <Tabs>
-                    <BridalTeam></BridalTeam>
-                    <GroomsTeam></GroomsTeam>
+                    <BridalTeam />
+                    <GroomsTeam />
                 </Tabs>
             </>
     )
