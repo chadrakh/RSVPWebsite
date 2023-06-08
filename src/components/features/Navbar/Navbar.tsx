@@ -47,6 +47,7 @@ const NavLink = styled(Link)`
 
 const HomeLink = styled(NavLink)`
   margin-left: 0;
+  font-family: "Parisienne", sans-serif;
 `;
 
 const NavBar = () => {
@@ -54,7 +55,7 @@ const NavBar = () => {
     <>
       <Nav>
         <LeftNav>
-          <HomeLink to="/">Home</HomeLink>
+          <HomeLink to="/">J & D</HomeLink>
         </LeftNav>
         <RightNav>
           <NavLink to="/rsvp">RSVP</NavLink>
