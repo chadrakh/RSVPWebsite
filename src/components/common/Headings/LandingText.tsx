@@ -25,7 +25,7 @@ type Props = {
     type?: string;
 };
 
-const LandingText : FC<Props> = ({ type, children }) => {
+const Text : FC<Props> = ({ type, children }) => {
     return(
         <>
             {type === "body" && <StyledBody>{children}</StyledBody>}
@@ -36,4 +36,4 @@ const LandingText : FC<Props> = ({ type, children }) => {
     )
 }
 
-export default LandingText;
+export default Text;

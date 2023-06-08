@@ -1,26 +1,55 @@
 import styled from '@emotion/styled';
-import LandingText from "../../common/Headings/LandingText";
+import Text from "../../common/Headings/LandingText";
 import PrimaryButton from "../../common/Buttons/PrimaryButton";
+import CountdownTimer from '../../common/Countdown/CountdownTimer';
+import { WEDDING_DATE } from '../../../store/consts/consts';
 
-const LandingWrapper = styled.div`
-  background-size: cover;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+const Header = styled.div`
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+
+const SubHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const Body = styled.div`
+    margin: 5vh 0 0 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+`
+
+// const Footer = styled.div``
 
 const Landing = () => {
     return(
     <>
-        <LandingWrapper>
-            <LandingText type={"primary"}>John & Dorcas</LandingText>
-            <LandingText type={"secondary"}>Save The Date</LandingText>
-            <LandingText type={"body"}>August 26th 2023</LandingText>
-            <LandingText type={"body"}>Bury Town Hall, BL9 0ST</LandingText>
-            <PrimaryButton>RSVP</PrimaryButton>
-        </LandingWrapper>
+        <>
+            <Header>
+                <Text type={"primary"}>John & Dorcas</Text>
+            </Header>
+
+
+            <SubHeader>
+                <Text type={"secondary"}>Save The Date</Text>
+            </SubHeader>
+
+            <Body>
+                <Text type={"body"}>August 26th 2023</Text>
+                <Text type={"body"}>Bury Town Hall, BL9 0ST</Text>
+                <CountdownTimer targetDate={WEDDING_DATE}/>
+                <PrimaryButton>RSVP</PrimaryButton>
+            </Body>
+        </>
     </>
     )
 }
