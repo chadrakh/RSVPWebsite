@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import LandingText from "../../common/Headings/LandingText";
 import PrimaryButton from "../../common/Buttons/PrimaryButton";
 
-
 const LandingWrapper = styled.div`
   background-size: cover;
   height: 80vh;
