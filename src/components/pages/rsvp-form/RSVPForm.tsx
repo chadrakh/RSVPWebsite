@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
 
 const FormWrapper = styled.div`
-  background-image: url('./example.png');
-  background-size: cover;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

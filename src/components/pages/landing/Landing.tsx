@@ -1,47 +1,28 @@
 import styled from '@emotion/styled';
-import PrimaryHeading from "../../common/Headings/PrimaryHeading";
-import SecondaryHeading from "../../common/Headings/SecondaryHeading";
+import LandingText from "../../common/Headings/LandingText";
+import PrimaryButton from "../../common/Buttons/PrimaryButton";
 
 const LandingWrapper = styled.div`
-  background-image: url(../../../assets/tempBg.jpg);
   background-size: cover;
-  height: 70vh;
+  height: 80vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-const TextWrapper = styled.div`
-  display: block;
-  text-align: center;
-  margin: 0;
-`;
-
-// const LandingWrapper = styled.div`
-// margin: 0;
-// padding: 0;
-// width: 100%;
-// height: 100%;
-// display: flex;
-// flex-direction: column;
-// justify-content: center;
-// align-items: center;
-// text-align: center;
-// gap: 2em;
-// `
-
 const Landing = () => {
     return(
     <>
-    <LandingWrapper>
-        <TextWrapper>
-            <PrimaryHeading>John & Dorcas</PrimaryHeading>
-            <SecondaryHeading>Save The Date</SecondaryHeading>
-            You have landed.
-        </TextWrapper>
-    </LandingWrapper>
+        <LandingWrapper>
+            <LandingText type={"primary"}>John & Dorcas</LandingText>
+            <LandingText type={"secondary"}>Save The Date</LandingText>
+            <LandingText type={"body"}>August 26th 2023</LandingText>
+            <LandingText type={"body"}>Bury Town Hall, BL9 0ST</LandingText>
+            <PrimaryButton>RSVP</PrimaryButton>
+        </LandingWrapper>
     </>
     )
 }
 
-export default Landing
+export default Landing;
