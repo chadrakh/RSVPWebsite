@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {FC, ReactElement} from 'react';
+import {FC, ReactNode} from 'react';
 
 const Grid = styled.div`
   gap: 10%;
@@ -10,11 +10,11 @@ const Grid = styled.div`
 `;
 
 type Props = {
-    children: ReactElement;
+    children: ReactNode;
 };
 
-const CardGrid: FC<Props> = ({ children }) => {
-    return <Grid>{children}</Grid>;
+const CardGrid: FC<Props> = () => {
+    return <Grid></Grid>;
 };
 
 export default CardGrid;
