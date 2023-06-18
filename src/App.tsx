@@ -1,11 +1,9 @@
-// App.tsx
-import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/features/Navbar/Navbar';
 import { lazy, Suspense } from 'react';
 import { Routes as BrowserRoutes, Route } from 'react-router-dom';
-import styled from "@emotion/styled";
-import background from "./assets/background-dark-overlay.jpg";
-import { handleRSVPFormSubmit } from "./store/util/rsvpUtils";
+import styled from '@emotion/styled';
+// import background from "./assets/background-dark-overlay.jpg";
+import { handleRSVPFormSubmit } from './store/util/rsvpUtils';
 
 const Landing = lazy(async () => await import('./components/pages/landing/Landing'));
 const RSVPForm = lazy(async () => await import('./components/pages/rsvp-form/RSVPForm'));
@@ -15,7 +13,7 @@ const ContactForm = lazy(async () => await import('./components/pages/contact-fo
 // const PageNotFound = lazy(async () => await import('../pages/error/PageNotFound'))
 
 const Background = styled.div`
-  background-image: url(${background});
+  background-image: url();
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -25,7 +23,7 @@ const Background = styled.div`
 const App = () => {
 
   return (
-      <Router>
+      <BrowserRoutes>
         <Background>
           <NavBar />
           <Suspense fallback={<div className="container">Loading...</div>}>
@@ -42,7 +40,7 @@ const App = () => {
             </BrowserRoutes>
           </Suspense>
         </Background>
-      </Router>
+      </BrowserRoutes>
   );
 };
 

@@ -1,5 +1,5 @@
-import { FC } from "react";
-import styled from "@emotion/styled";
+import { FC } from 'react';
+import styled from '@emotion/styled';
  
 const Display = styled.div<{ isDanger: boolean }>`
     padding: 1rem;
@@ -16,7 +16,7 @@ const Display = styled.div<{ isDanger: boolean }>`
     word-break: break-word;
     font-weight: bold;
     font-size: 1em;
-    color: ${props => (props.isDanger ? "red" : "white")};
+    color: ${props => (props.isDanger ? 'red' : 'white')};
 `;
 
 const StyledSpan = styled.span`
@@ -37,7 +37,7 @@ const DateTimeDisplay: FC<Props> = ({ value, unit, isDanger }) => {
 
 type Props = {
   value: number;
-  unit: "Days" | "Hours" | "Mins" | "Secs";
+  unit: 'Days' | 'Hours' | 'Mins' | 'Secs';
   isDanger: boolean;
 };
 

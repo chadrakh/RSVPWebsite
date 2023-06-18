@@ -1,5 +1,5 @@
-import { FC } from "react";
-import styled from "@emotion/styled";
+import { FC } from 'react';
+import styled from '@emotion/styled';
 
 const StyledTitle = styled.button`
   padding: 5%;
@@ -32,7 +32,7 @@ const TabTitle: FC<Props> = ({
       <StyledTitle
         onClick={() => setSelectedTab(index)}
         style={{
-          borderBottom: selectedTab === index ? "2px solid white" : "none",
+          borderBottom: selectedTab === index ? '2px solid white' : 'none',
         }}
       >
         {title}

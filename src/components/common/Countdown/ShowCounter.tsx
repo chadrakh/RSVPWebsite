@@ -1,6 +1,6 @@
-import { FC } from "react";
-import DateTimeDisplay from "./DateTimeDisplay";
-import styled from "@emotion/styled";
+import { FC } from 'react';
+import DateTimeDisplay from './DateTimeDisplay';
+import styled from '@emotion/styled';
 
 const StyledWrapper = styled.div`
     margin: 2em 0 2em 0;

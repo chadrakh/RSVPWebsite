@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const ExpiredNotice: FC = () => {
     return (
         <>
-        <p>It's today!.</p>
+        <p>Today is the day!.</p>
         </>
     );
   };

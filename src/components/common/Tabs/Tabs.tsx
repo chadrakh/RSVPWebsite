@@ -1,6 +1,6 @@
-import { FC, ReactElement, useState } from "react";
-import styled from "@emotion/styled";
-import TabTitle from "./TabTitle";
+import { FC, ReactElement, useState } from 'react';
+import styled from '@emotion/styled';
+import TabTitle from './TabTitle';
 
 const StyledList = styled.ul`
   display: flex;

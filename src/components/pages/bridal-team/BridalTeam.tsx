@@ -1,7 +1,7 @@
-import Card from "../../common/Cards/Card";
-import Grid from "../../common/Cards/CardGrid";
-import Container from "../../common/Cards/CardContainer";
-import { BRIDESMAIDS } from "../../../store/consts/consts";
+import Card from '../../common/Cards/Card';
+import Grid from '../../common/Cards/CardGrid';
+import Container from '../../common/Cards/CardContainer';
+import { BRIDESMAIDS } from '../../../store/consts/consts';
 
 const BridalTeam = () => {
     return (

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import StyledText from "../../common/Texts/StyledText";
-import PrimaryButton from "../../common/Buttons/Button";
+import StyledText from '../../common/Texts/StyledText';
+import PrimaryButton from '../../common/Buttons/Button';
 import CountdownTimer from '../../common/Countdown/CountdownTimer';
 import { WEDDING_DATE } from '../../../store/consts/consts';
 

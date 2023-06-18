@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { FC, FormEvent, useState } from 'react';
-import StyledText from "../../common/Texts/StyledText";
+import StyledText from '../../common/Texts/StyledText';
 
 const FormWrapper = styled.div`
   display: flex;
@@ -149,7 +149,7 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
               />
           </Label>
 
-            {/*{isAttending && (*/}
+            {/* {isAttending && (*/}
             {/*    <>*/}
             {/*        <StyledText type="body">Additional Guests?</StyledText>*/}
             {/*        <Input*/}
@@ -161,8 +161,8 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
             {/*        />*/}
             {/*        */}
             {/*    </>*/}
-            {/*)}*/}
-          {/*{isAttending && additionalGuests && (*/}
+            {/* )}*/}
+          {/* {isAttending && additionalGuests && (*/}
           {/*    <>*/}
           {/*      <Label>*/}
           {/*        Number of Guests:*/}
@@ -183,7 +183,7 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
           {/*        />*/}
           {/*      </Label>*/}
           {/*    </>*/}
-          {/*)}*/}
+          {/* )}*/}
           <Button type="submit">Submit</Button>
         </Form>
       </FormWrapper>
