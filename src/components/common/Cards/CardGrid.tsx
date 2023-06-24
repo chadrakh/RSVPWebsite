@@ -2,19 +2,22 @@ import styled from '@emotion/styled';
 import {FC, ReactNode} from 'react';
 
 const Grid = styled.div`
-  gap: 10%;
-  padding: 3vh;
-  display: grid;
-  flex: 1 1 auto;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+margin: 10%;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+grid-gap: 20px;
 `;
-
-const CardGrid: FC<Props> = () => {
-    return <Grid></Grid>;
-};
 
 type Props = {
   children: ReactNode;
+}
+
+const CardGrid: FC<Props> = ( {children} ) => {
+    return (
+        <Grid>
+          {children}
+        </Grid>
+    );
 };
 
 export default CardGrid;

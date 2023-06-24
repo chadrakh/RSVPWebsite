@@ -1,22 +1,25 @@
 import styled from '@emotion/styled';
-import { FC, ReactElement } from 'react';
+import { FC, ReactNode } from 'react';
 
 const StyledCard = styled.div`
+  width: 100%;
+  padding-bottom: 100%; /* Set aspect ratio for fixed size */
+  background-color: white;
+  display: flex;
   text-align: center;
+  align-items: center;
   justify-content: center;
-  outline: solid white;
-  color: grey;
-  background: rgba(255, 255, 240, 0);
+  color: black;
 `;
 
-const Card: FC<Props> = () => {
+type Props = {
+    children: ReactNode[];
+};
+
+const Card: FC<Props> = ( {children} ) => {
     return(
-        <StyledCard>
-        </StyledCard>
+        <StyledCard>{children}</StyledCard>
     )
 }
 
-type Props = {
-    children: ReactElement[];
-};
 export default Card
