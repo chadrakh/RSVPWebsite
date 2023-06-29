@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 const StyledCard = styled.div`
   width: 100%;
@@ -13,13 +13,13 @@ const StyledCard = styled.div`
 `;
 
 type Props = {
-    text: string;
+    children: ReactNode;
 };
 
-const Card: FC<Props> = ({text}) => {
+const Card: FC<Props> = ({children}) => {
     return(
         <StyledCard>
-            {text}
+            {children}
         </StyledCard>
     )
 }
