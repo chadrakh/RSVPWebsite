@@ -1,17 +1,16 @@
 import Card from "../../common/Cards/Card"
 import CardGrid from "../../common/Cards/CardGrid"
+import Image from "../../common/Image/Image"
+import { TRAD_IMAGES } from "../../../store/consts/consts"
 
 const ImageGallery = () => {
     return(
         <CardGrid>
-            <Card text="Card 1" />
-            <Card text="Card 2" />
-            <Card text="Card 3" />
-            <Card text="Card 4" />
-            <Card text="Card 5" />
-            <Card text="Card 6" />
-            <Card text="Card 7" />
-            <Card text="Card 8" />
+          {TRAD_IMAGES.map((imageName, index) => (
+            <Card key={index}>
+              <Image src={require('../../../assets/gallery/' + imageName)} alt={imageName} />
+            </Card>
+          ))}
         </CardGrid>
     )
 }
