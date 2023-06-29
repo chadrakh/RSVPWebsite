@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
 const StyledCard = styled.div`
   width: 100%;
-  padding-bottom: 100%; /* Set aspect ratio for fixed size */
+  padding-bottom: 100%; /* Sets aspect ratio for fixed size */
   background-color: white;
   display: flex;
   text-align: center;
@@ -13,12 +13,14 @@ const StyledCard = styled.div`
 `;
 
 type Props = {
-    children: ReactNode[];
+    text: string;
 };
 
-const Card: FC<Props> = ( {children} ) => {
+const Card: FC<Props> = ({text}) => {
     return(
-        <StyledCard>{children}</StyledCard>
+        <StyledCard>
+            {text}
+        </StyledCard>
     )
 }
 

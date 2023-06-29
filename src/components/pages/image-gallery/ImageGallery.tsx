@@ -1,13 +1,17 @@
+import Card from "../../common/Cards/Card"
 import CardGrid from "../../common/Cards/CardGrid"
 
 const ImageGallery = () => {
     return(
         <CardGrid>
-            {/* Add Card components here */}
-            {/* For example: */}
-            {/* <Card>Card 1</Card> */}
-            {/* <Card>Card 2</Card> */}
-            {/* <Card>Card 3</Card> */}
+            <Card text="Card 1" />
+            <Card text="Card 2" />
+            <Card text="Card 3" />
+            <Card text="Card 4" />
+            <Card text="Card 5" />
+            <Card text="Card 6" />
+            <Card text="Card 7" />
+            <Card text="Card 8" />
         </CardGrid>
     )
 }
