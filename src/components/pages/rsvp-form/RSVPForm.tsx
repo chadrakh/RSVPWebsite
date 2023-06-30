@@ -92,14 +92,28 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
 
   return (
       <FormWrapper>
-          <StyledText type="header">RSVP</StyledText>
-          <StyledText type="body">Saturday, 26 August, 2023</StyledText>
-          <StyledText type="body">12:00 PM Ceremony - Bury Hall BL9 0ST</StyledText>
+          <StyledText 
+            type="header"
+            size="x-large">
+            RSVP
+          </StyledText>
+
+          <StyledText 
+            type="body"
+            size="medium">
+            Saturday, 26 August, 2023
+          </StyledText>
+
+          <StyledText 
+            type="body"
+            size="medium">
+            12:00 PM Ceremony - Bury Hall BL9 0ST
+          </StyledText>
+          
           <Form onSubmit={handleSubmit}>
           <StyledText
               type="header"
-              size="small"
-          >
+              size="xx-large">
             Will you attend?
           </StyledText>
           <Label>
