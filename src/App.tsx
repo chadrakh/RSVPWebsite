@@ -11,7 +11,6 @@ const Landing = lazy(async () => await import('./components/pages/landing/Landin
 const RSVPForm = lazy(async () => await import('./components/pages/rsvp-form/RSVPForm'));
 const WeddingTeam = lazy(async () => await import('./components/pages/wedding-team/WeddingTeam'));
 const ImageGallery = lazy(async () => await import('./components/pages/image-gallery/ImageGallery'));
-const ContactForm = lazy(async () => await import('./components/pages/contact-form/ContactForm'));
 // const PageNotFound = lazy(async () => await import('../pages/error/PageNotFound'))
 
 const Background = styled.div`
@@ -37,7 +36,6 @@ const App = () => {
               />
               <Route path="/wedding-team" element={<WeddingTeam />} />
               <Route path="/gallery" element={<ImageGallery />} />
-              <Route path="/contact" element={<ContactForm />} />
               {/* <Route path="*" element={<PageNotFound />} /> */}
             </BrowserRoutes>
           </Suspense>

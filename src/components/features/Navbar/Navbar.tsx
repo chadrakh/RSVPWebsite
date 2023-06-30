@@ -61,7 +61,6 @@ const NavBar = () => {
           <NavLink to="/rsvp">RSVP</NavLink>
           <NavLink to="/wedding-team">Wedding Team</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
         </RightNav>
       </Nav>
     </>
