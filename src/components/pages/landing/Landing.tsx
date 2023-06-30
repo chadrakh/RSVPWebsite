@@ -33,12 +33,12 @@ const Landing = () => {
     <>
         <>
             <Header>
-                <StyledText type="header">John & Dorcas</StyledText>
+                <StyledText type="header" size="6em">John & Dorcas</StyledText>
             </Header>
 
 
             <SubHeader>
-                <StyledText type="subheader">Save The Date</StyledText>
+                <StyledText type="subheader" size="3em">Save The Date</StyledText>
             </SubHeader>
 
             <Body>

@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type TextProps = {
   bold?: boolean;
   italics?: boolean;
   padding?: number;
-  size?: string;
+  size?: "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large" | "2em" | "3em" |"4em" | "6em";
 };
 
 const StyledPrimary = styled.h1<TextProps>`
@@ -35,12 +35,12 @@ const StyledBody = styled.p<TextProps>`
 `;
 
 type Props = {
-  children: string;
+  children: ReactNode;
   type?: "header" | "subheader" | "body";
   bold?: boolean;
   italics?: boolean;
   padding?: number;
-  size?: "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large";
+  size?: "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large" | "2em" | "3em" |"4em" | "6em";
 };
 
 const StyledText: FC<Props> = ({ type, children, bold, italics, padding, size }) => {

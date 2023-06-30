@@ -5,35 +5,52 @@ import StyledText from "../../common/Texts/StyledText";
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #141414;
-  margin-inline: 10em;
-  padding-block: 2em;
   opacity: 90%;
+  margin: 4em;
+  padding: 2em;
 `;
 
 const Form = styled.form`
+  padding: 1em;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 768px) {
+    width: 55%;
+  }
 `;
 
 const Label = styled.label`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  color: #f7f7f7;
+`;
+
+const InlineLabel = styled.label`
+  display: flex;
+  margin-bottom: 1.5em;
   color: #f7f7f7;
 `;
 
 const Input = styled.input`
-  padding: 5px;
+  padding: 0.5em;
   width: 100%;
   font-style: italic;
   color: #141414;
 `;
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const Button = styled.button`
-  padding: 10px 20px;
+  width: 60%;
+  padding: 1em;
   background-color: #f5f5dc;
   color: #141414;
   border: none;
@@ -94,7 +111,7 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
       <FormWrapper>
           <StyledText 
             type="header"
-            size="x-large">
+            size="xx-large">
             RSVP
           </StyledText>
 
@@ -107,15 +124,22 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
           <StyledText 
             type="body"
             size="medium">
-            12:00 PM Ceremony - Bury Hall BL9 0ST
+            12:00 PM Ceremony
           </StyledText>
-          
-          <Form onSubmit={handleSubmit}>
+
+          <StyledText 
+            type="body"
+            size="medium">
+            Bury Hall BL9 0ST
+          </StyledText>
+
           <StyledText
               type="header"
               size="xx-large">
             Will you attend?
           </StyledText>
+          
+          <Form onSubmit={handleSubmit}>
           <Label>
             <Input
                 type="text"
@@ -128,12 +152,12 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
           <Label>
           <Input
             type="tel"
-            placeholder="Telephone Number"
+            placeholder="Phone Number"
             value={telNumber.trim()}
             onChange={(e) => setTelNumber(e.target.value)}
           />
           </Label>
-          <Label>
+          <InlineLabel>
               <StyledText type="body">Attending?</StyledText>
               <Input
                   type="checkbox"
@@ -143,7 +167,7 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
                       setGuestCount(1);
                   }}
               />
-          </Label>
+          </InlineLabel>
           <Label>
               <StyledText type="body">Number of guests:</StyledText>
               <Input
@@ -154,7 +178,7 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
               />
           </Label>
           <Label>
-              <StyledText type="body">Please provide the names of additional guests.</StyledText>
+              <StyledText type="body">Please provide the names of any additional guests.</StyledText>
               <Input
                   type="text"
                   placeholder="Additional guests"
@@ -198,7 +222,9 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
           {/*      </Label>*/}
           {/*    </>*/}
           {/*)}*/}
-          <Button type="submit">Submit</Button>
+          <ButtonWrapper>
+            <Button type="submit">Submit</Button>
+          </ButtonWrapper>
         </Form>
       </FormWrapper>
   );
