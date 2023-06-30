@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 
 const StyledCard = styled.div`
   width: 100%;
-  padding-bottom: 100%; /* Sets aspect ratio for fixed size */
+  padding: 4%;
   background-color: white;
   display: flex;
   text-align: center;
