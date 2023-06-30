@@ -1,36 +1,42 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactElement } from "react";
 import styled from "@emotion/styled";
-import TabTitle from "./TabTitle";
+import TabTitle, { TabTitleProps } from "./TabTitle";
+import React from "react";
 
 const StyledList = styled.ul`
   display: flex;
   justify-content: center;
 `;
 
+type TabsProps = {
+  selectedTab: number;
+  setSelectedTab: (index: number) => void;
+  children: ReactElement<TabTitleProps>[] | ReactElement<TabTitleProps>;
+};
 
-const Tabs: FC<Props> = ({ children }) => {
-  const [selectedTab, setSelectedTab] = useState(0);
+const Tabs: FC<TabsProps> = ({ selectedTab, setSelectedTab, children }) => {
+  const childrenArray = Array.isArray(children) ? children : [children];
 
   return (
     <div>
       <StyledList>
-        {children.map((item, index) => (
-          <TabTitle
-            key={index}
-            title={item.props.title}
-            index={index}
-            setSelectedTab={setSelectedTab}
-            selectedTab={selectedTab}
-          />
-        ))}
+        {childrenArray.map((child) => {
+          if (React.isValidElement(child) && child.type === TabTitle) {
+            const { title, setSelectedTab: childSetSelectedTab, selectedTab: childSelectedTab, ...restProps } = child.props;
+            const tabProps: TabTitleProps = {
+              title,
+              setSelectedTab: childSetSelectedTab || setSelectedTab,
+              selectedTab: childSelectedTab !== undefined ? childSelectedTab : selectedTab,
+              ...restProps,
+            };
+
+            return <TabTitle {...tabProps} />;
+          }
+          return child;
+        })}
       </StyledList>
-      {children[selectedTab]}
     </div>
   );
-};
-
-type Props = {
-  children: ReactElement[];
 };
 
 export default Tabs;

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import styled from "@emotion/styled";
 
 const StyledTitle = styled.button`
@@ -8,12 +8,15 @@ const StyledTitle = styled.button`
   cursor: pointer;
   outline: none;
   border: none;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   background-color: transparent;
   border-bottom: 2px solid transparent;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
   &:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #ffffff;
+    opacity: 1;
   }
 `;
 
@@ -21,31 +24,42 @@ const StyledListItem = styled.li`
   list-style-type: none;
 `;
 
-const TabTitle: FC<Props> = ({
+export type TabTitleProps = {
+  title: string;
+  index: number;
+  children?: ReactNode;
+  setSelectedTab?: (index: number) => void;
+  selectedTab?: number;
+};
+
+const TabTitle: FC<TabTitleProps> = ({
   title,
   setSelectedTab,
   index,
   selectedTab,
 }) => {
+  const isActive = selectedTab === index;
+
+  const handleClick = () => {
+    if (setSelectedTab) {
+      setSelectedTab(index);
+    }
+  };
+
   return (
     <StyledListItem>
       <StyledTitle
-        onClick={() => setSelectedTab(index)}
+        onClick={handleClick}
         style={{
-          borderBottom: selectedTab === index ? "2px solid white" : "none",
+          borderBottom: isActive ? "2px solid #ffffff" : "none",
+          opacity: isActive ? 1 : 0.6,
+          marginRight: "1em"
         }}
       >
         {title}
       </StyledTitle>
     </StyledListItem>
   );
-};
-
-type Props = {
-  title: string;
-  index: number;
-  setSelectedTab: (index: number) => void;
-  selectedTab: number;
 };
 
 export default TabTitle;
