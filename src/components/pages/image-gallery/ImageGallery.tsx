@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, TouchEvent } from 'react';
 import Card from '../../common/Cards/Card';
 import Image from '../../common/Image/Image';
 import { TRAD_IMAGES } from '../../../store/consts/consts';
@@ -35,7 +35,7 @@ const NextButton = styled(NavigationButton)`
 `;
 
 const ImageGallery = () => {
-  const itemsPerPage = 3; // Number of TRAD_IMAGES items to show per page
+  var itemsPerPage = 2;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(TRAD_IMAGES.length / itemsPerPage);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,15 +49,17 @@ const ImageGallery = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+  type Touch = TouchEvent<HTMLDivElement>;
+
+  const handleTouchStart = (e: Touch) => {
     setStartX(e.touches[0].clientX);
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchMove = (e: Touch) => {
     e.preventDefault();
   };
 
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchEnd = (e: Touch) => {
     const distance = e.changedTouches[0].clientX - startX;
     const threshold = window.innerWidth / 5; // Minimum swipe distance to trigger navigation
 
@@ -68,11 +70,11 @@ const ImageGallery = () => {
     }
   };
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
+  var startIndex = (currentPage - 1) * itemsPerPage;
+
   const endIndex = startIndex + itemsPerPage;
 
   return (
-    <>
       <CardGrid ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
         {totalPages > 1 && (
           <PreviousButton onClick={handlePrevPage} disabled={currentPage === 1}>
@@ -92,8 +94,9 @@ const ImageGallery = () => {
           </NextButton>
         )}
       </CardGrid>
-    </>
   );
 };
 
 export default ImageGallery;
+
+// Ignore any code irrelevant to the solution, but edit this code so that for the last 11 pages it renders only one item per page.
