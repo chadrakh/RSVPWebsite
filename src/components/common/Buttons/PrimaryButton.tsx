@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {FC} from "react";
+import { FC, ButtonHTMLAttributes } from "react";
 
 const StyledButton = styled.button`
   padding: 15px 50px;
@@ -20,16 +20,16 @@ const StyledButton = styled.button`
   }
 `;
 
-const PrimaryButton : FC<Props> = ({ children }) => {
-    return(
-        <>
-            <StyledButton>{children}</StyledButton>
-        </>
-    )
-}
-
-type Props = {
+type PrimaryButtonProps = {
   children: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+const PrimaryButton: FC<PrimaryButtonProps> = ({ children, onClick, ...rest }) => {
+  return (
+    <StyledButton onClick={onClick} {...rest}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default PrimaryButton;
