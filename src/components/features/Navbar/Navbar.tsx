@@ -21,7 +21,8 @@ const RightNav = styled.div`
 
 const NavLink = styled(Link)`
   color: white;
-  margin-left: 20px;
+  font-size: large;
+  margin-left: 2em;
   text-decoration: none;
   position: relative;
   &:hover {

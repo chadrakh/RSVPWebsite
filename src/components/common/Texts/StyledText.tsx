@@ -36,7 +36,7 @@ const StyledBody = styled.p<TextProps>`
 
 type Props = {
   children: ReactNode;
-  type?: "header" | "subheader" | "body";
+  type: "header" | "subheader" | "body";
   bold?: boolean;
   italics?: boolean;
   padding?: number;

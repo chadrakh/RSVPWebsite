@@ -1,4 +1,4 @@
-import { useState, useRef, TouchEvent } from 'react';
+import { useState, useRef, TouchEvent, useEffect } from 'react';
 import Card from '../../common/Cards/Card';
 import Image from '../../common/Image/Image';
 import { TRAD_IMAGES } from '../../../store/consts/consts';
@@ -35,9 +35,7 @@ const NextButton = styled(NavigationButton)`
 `;
 
 const ImageGallery = () => {
-  var itemsPerPage = 2;
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(TRAD_IMAGES.length / itemsPerPage);
   const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState(0);
 
@@ -70,33 +68,57 @@ const ImageGallery = () => {
     }
   };
 
-  var startIndex = (currentPage - 1) * itemsPerPage;
+  const calculateItemsPerPage = () => {
+    const screenWidth = window.innerWidth;
 
+    if (screenWidth >= 1024) {
+      return 1; // Desktop: 1 item per page
+    } else if (screenWidth >= 768) {
+      return 2; // Tablet: 2 items per page
+    } else {
+      return 3; // Mobile: 3 items per page
+    }
+  };
+
+  const [itemsPerPage, setItemsPerPage] = useState(calculateItemsPerPage);
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      setItemsPerPage(calculateItemsPerPage);
+    };
+
+    window.addEventListener('resize', updateItemsPerPage);
+
+    return () => {
+      window.removeEventListener('resize', updateItemsPerPage);
+    };
+  }, []);
+
+  const totalPages = Math.ceil(TRAD_IMAGES.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
   return (
-      <CardGrid ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-        {totalPages > 1 && (
-          <PreviousButton onClick={handlePrevPage} disabled={currentPage === 1}>
-            &#8249;
-          </PreviousButton>
-        )}
-        <SlideshowContainer>
-          {TRAD_IMAGES.slice(startIndex, endIndex).map((imageName, index) => (
-            <Card key={index} padding="0.5em" margin="0.5em">
-              <Image src={require('../../../assets/gallery/' + imageName)} alt={imageName} />
-            </Card>
-          ))}
-        </SlideshowContainer>
-        {totalPages > 1 && (
-          <NextButton onClick={handleNextPage} disabled={currentPage === totalPages}>
-            &#8250;
-          </NextButton>
-        )}
-      </CardGrid>
+    <CardGrid ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+      {totalPages > 1 && (
+        <PreviousButton onClick={handlePrevPage} disabled={currentPage === 1}>
+          &#8249;
+        </PreviousButton>
+      )}
+      <SlideshowContainer>
+        {TRAD_IMAGES.slice(startIndex, endIndex).map((imageName, index) => (
+          <Card key={index} padding="0.5em" margin="0.5em">
+            <Image src={require('../../../assets/gallery/' + imageName)} alt={imageName} />
+          </Card>
+        ))}
+      </SlideshowContainer>
+      {totalPages > 1 && (
+        <NextButton onClick={handleNextPage} disabled={currentPage === totalPages}>
+          &#8250;
+        </NextButton>
+      )}
+    </CardGrid>
   );
 };
 
 export default ImageGallery;
-
-// Ignore any code irrelevant to the solution, but edit this code so that for the last 11 pages it renders only one item per page.
