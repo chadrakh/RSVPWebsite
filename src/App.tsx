@@ -16,8 +16,15 @@ const Background = styled.div`
   background-image: url(${background});
   background-size: cover;
   background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
   height: 100vh;
+  
   position: relative;
+
+  @media (max-width: 660px) {
+    height: auto;
+  }
 `;
 
 const App = () => {
