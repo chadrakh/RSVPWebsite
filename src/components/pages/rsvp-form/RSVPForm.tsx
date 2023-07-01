@@ -115,7 +115,9 @@ const RSVPForm: FC = () => {
 
           <StyledText
               type="header"
-              size="xx-large">
+              size="xx-large"
+              padding={0.7}
+          >
             Will you attend?
           </StyledText>
           

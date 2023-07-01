@@ -12,7 +12,6 @@ const StyledButton = styled.button`
   border-radius: 0;
   cursor: pointer;
   transition: all 0.3s;
-  margin-top: 3em;
 
   &:hover {
     transform: scale(1.1);

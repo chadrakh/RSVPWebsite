@@ -21,7 +21,7 @@ const SubHeader = styled.div`
 `
 
 const Body = styled.div`
-    margin: 5vh 0 0 0;
+    margin: 3vh 0 0 0;
     flex-direction: column;
     justify-content: center;
     text-align: center;

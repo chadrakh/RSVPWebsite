@@ -11,6 +11,11 @@ const DisplayWrapper = styled.div`
   flex-direction: column;
   align-items: left;
   margin: 4em 2em;
+
+  @media (max-width: 660px) {
+    align-items: center;
+    margin: 0em 2em;
+  }
 `;
 
 const ContentGroup = styled.div`
@@ -56,7 +61,6 @@ const WeddingTeam = () => {
           <StyledImage src={img2} alt="" />
           <StyledText type="body">Maria</StyledText>
         </LabelCard>
-        
         <LabelCard>
           <StyledImage src={img4} alt="" />
           <StyledText type="body">Rosie</StyledText>
