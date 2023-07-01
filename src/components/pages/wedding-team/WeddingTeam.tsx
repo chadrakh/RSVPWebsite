@@ -35,7 +35,7 @@ const LabelCard = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #ffffff;
+  color: #f7f7f7;
 `;
 
 const StyledImage = styled.img`
