@@ -13,7 +13,6 @@ const Header = styled.div`
     align-items: center;
 `
 
-
 const SubHeader = styled.div`
     display: flex;
     flex-direction: column;

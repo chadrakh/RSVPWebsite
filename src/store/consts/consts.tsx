@@ -23,3 +23,5 @@ export const TRAD_IMAGES: string[] = [
 export  const EMAILJS_SERVICE_ID = 'service_lpwobfk';
 export  const EMAILJS_TEMPLATE_ID = 'template_9k137tu';
 export  const EMAILJS_PUBLIC_KEY = 'd3v9fY3bp6fzGBRd-';
+
+export  const SITE_PASSWORD = 'MOMBI2023';

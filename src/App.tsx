@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 import { Routes as BrowserRoutes, Route } from 'react-router-dom';
 import styled from "@emotion/styled";
 import background from "./assets/background-dark-overlay.jpg";
+import PasswordProtection from './components/common/Password-Protection/PasswordProtection';
 
 const Landing = lazy(async () => await import('./components/pages/landing/Landing'));
 const RSVPForm = lazy(async () => await import('./components/pages/rsvp-form/RSVPForm'));
@@ -22,16 +23,15 @@ const Background = styled.div`
 const App = () => {
 
   return (
-      <Router>
+    <>
+    <PasswordProtection>
+        <Router>
         <Background>
           <NavBar />
           <Suspense fallback={<div className="container">Loading...</div>}>
             <BrowserRoutes>
               <Route path="/" element={<Landing />} />
-              <Route
-                  path="/rsvp"
-                  element={<RSVPForm />}
-              />
+              <Route path="/rsvp" element={<RSVPForm />} />
               <Route path="/wedding-team" element={<WeddingTeam />} />
               <Route path="/gallery" element={<ImageGallery />} />
               {/* <Route path="*" element={<PageNotFound />} /> */}
@@ -39,6 +39,8 @@ const App = () => {
           </Suspense>
         </Background>
       </Router>
+      </PasswordProtection>
+    </>
   );
 };
 

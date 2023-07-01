@@ -5,68 +5,9 @@ import StyledText from "../../common/Texts/StyledText";
 import { RSVPData } from '../../../store/consts/types';
 import { Button as MuiButton, Modal, Typography } from '@mui/material';
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../../../store/consts/consts';
+import { Button, ButtonWrapper, Form, FormWrapper, InlineFormLabel, FormInput, FormLabel } from '../../common/StyledForm/StyledForm';
 
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #141414;
-  opacity: 90%;
-  margin: 4em;
-  padding: 2em;
-`
-
-const Form = styled.form`
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 768px) {
-    width: 55%;
-  }
-`
-
-const Label = styled.label`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5em;
-  color: #f7f7f7;
-`
-
-const InlineLabel = styled.label`
-  display: flex;
-  margin-bottom: 1.5em;
-  color: #f7f7f7;
-`
-
-const Input = styled.input`
-  padding: 0.5em;
-  width: 100%;
-  font-style: italic;
-  color: #141414;
-`
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-const Button = styled.button`
-  width: 60%;
-  padding: 1em;
-  background-color: #f5f5dc;
-  color: #141414;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #ccccb4;
-  }
-`
-
-const ModalContentWrapper = styled('div')`
+const ModalContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,8 +120,8 @@ const RSVPForm: FC = () => {
           </StyledText>
           
           <Form onSubmit={handleSubmit}>
-          <Label>
-            <Input
+          <FormLabel>
+            <FormInput
                 type="text"
                 name="name"
                 id="name"
@@ -189,9 +130,9 @@ const RSVPForm: FC = () => {
                 onChange={(e) => setName(e.target.value)}
                 required
             />
-          </Label>
-          <Label>
-          <Input
+          </FormLabel>
+          <FormLabel>
+          <FormInput
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
@@ -199,9 +140,9 @@ const RSVPForm: FC = () => {
             value={phoneNumber.trim()}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-          </Label>
-          <Label>
-          <Input
+          </FormLabel>
+          <FormLabel>
+          <FormInput
             type="email"
             name="email"
             id="email"
@@ -209,10 +150,10 @@ const RSVPForm: FC = () => {
             value={email.trim()}
             onChange={(e) => setEmail(e.target.value)}
           />
-          </Label>
-          <InlineLabel>
+          </FormLabel>
+          <InlineFormLabel>
               <StyledText type="body">Attending?</StyledText>
-              <Input
+              <FormInput
                   type="checkbox"
                   name="isAttending"
                   id="isAttending"
@@ -222,10 +163,10 @@ const RSVPForm: FC = () => {
                       setGuestCount(1);
                   }}
               />
-          </InlineLabel>
-          <Label>
+          </InlineFormLabel>
+          <FormLabel>
               <StyledText type="body">Total number of guests:</StyledText>
-              <Input
+              <FormInput
                   type="number"
                   name="guestCount"
                   id="guestCount"
@@ -233,10 +174,10 @@ const RSVPForm: FC = () => {
                   pattern="[0-9]{10}"
                   onChange={(e) => setGuestCount(Number(e.target.value))}
               />
-          </Label>
-          <Label>
+          </FormLabel>
+          <FormLabel>
               <StyledText type="body">Please provide the names of any additional guests.</StyledText>
-              <Input
+              <FormInput
                   type="text"
                   name="additionalGuests"
                   id="additionalGuests"
@@ -244,7 +185,7 @@ const RSVPForm: FC = () => {
                   value={additionalGuests}
                   onChange={(e) => setAdditionalGuests(e.target.value)}
               />
-          </Label>
+          </FormLabel>
 
             {/*{isAttending && (*/}
             {/*    <>*/}
