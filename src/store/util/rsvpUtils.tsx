@@ -1,12 +1,25 @@
-export type RSVPData = {
-    name: string;
-    telNumber: string;
-    isAttending: boolean;
-    guestCount: number;
-    message: string;
-};
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { RSVPData } from '../consts/types';
 
-export const handleRSVPFormSubmit = (guestData: RSVPData) => {
-    // Add functionality for form submission
-    console.log('GuestData:', guestData);
+// type emailResource = {
+//     serviceId: string,
+//     templateId: string,
+//     userId: string,
+//     rsvpData: RSVPData,
+// }
+
+export const handleRSVPFormSubmit = (rsvpData: RSVPData) => {
+    emailjs
+    .send(
+      'service_lpwobfk', // Service ID
+      'template_9k137tu', // Template ID
+      {rsvpData},
+      'd3v9fY3bp6fzGBRd-' // Public key
+    )
+    .then((response: EmailJSResponseStatus) => {
+      console.log('Email sent successfully!', response.status, response.text);
+    })
+    .catch((error: any) => {
+      console.error('Email sending failed:', JSON.stringify(error));
+    });
 };

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { FC, FormEvent, useState } from 'react';
 import StyledText from "../../common/Texts/StyledText";
+import { RSVPData } from '../../../store/consts/types';
 
 const FormWrapper = styled.div`
   display: flex;
@@ -66,17 +67,10 @@ type RSVPFormProps = {
   onSubmit: (guestData: RSVPData) => void;
 };
 
-type RSVPData = {
-  name: string;
-  telNumber: string;
-  isAttending: boolean;
-  guestCount: number;
-  message: string;
-};
-
 const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [telNumber, setTelNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [isAttending, setIsAttending] = useState(false);
   // const [additionalGuests, setAdditionalGuests] = useState(false);
   const [guestCount, setGuestCount] = useState(0);
@@ -85,21 +79,22 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
   const handleSubmit = (e: FormEvent) => {
       e.preventDefault();
 
-      const trimmedName = name.trim();
 
-      if (trimmedName.length > 0) {
+      if (name.length > 0) {
           const guestData: RSVPData = {
-              name: trimmedName,
-              telNumber: telNumber.trim(),
-              isAttending,
-              guestCount,
-              message: message.trim(),
+              name: name,
+              telNumber: telNumber,
+              email: email,
+              isAttending: isAttending ? 'Yes' : 'No',
+              guestCount: guestCount.toString(),
+              message: message,
           };
 
       onSubmit(guestData);
 
       setName('');
       setTelNumber('');
+      setEmail('');
       setIsAttending(false);
       // setAdditionalGuests(false);
       setGuestCount(0);
@@ -155,6 +150,14 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
             placeholder="Phone Number"
             value={telNumber.trim()}
             onChange={(e) => setTelNumber(e.target.value)}
+          />
+          </Label>
+          <Label>
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email.trim()}
+            onChange={(e) => setEmail(e.target.value)}
           />
           </Label>
           <InlineLabel>
