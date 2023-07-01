@@ -1,11 +1,9 @@
-// App.tsx
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './components/features/Navbar/Navbar';
 import { lazy, Suspense } from 'react';
 import { Routes as BrowserRoutes, Route } from 'react-router-dom';
 import styled from "@emotion/styled";
 import background from "./assets/background-dark-overlay.jpg";
-import { handleRSVPFormSubmit } from "./store/util/rsvpUtils";
 
 const Landing = lazy(async () => await import('./components/pages/landing/Landing'));
 const RSVPForm = lazy(async () => await import('./components/pages/rsvp-form/RSVPForm'));
@@ -32,7 +30,7 @@ const App = () => {
               <Route path="/" element={<Landing />} />
               <Route
                   path="/rsvp"
-                  element={<RSVPForm onSubmit={handleRSVPFormSubmit} />}
+                  element={<RSVPForm />}
               />
               <Route path="/wedding-team" element={<WeddingTeam />} />
               <Route path="/gallery" element={<ImageGallery />} />
