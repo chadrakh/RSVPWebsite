@@ -5,14 +5,14 @@ import { TRAD_IMAGES } from '../../../store/consts/consts';
 import styled from '@emotion/styled';
 
 const CardGrid = styled.div`
-  margin: 5% auto;
+  margin: 4em auto;
 `;
 
 const SlideshowContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 15vw;
+  margin-inline: 15vw;
 `;
 
 const NavigationButton = styled.button`
