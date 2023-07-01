@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react'
 import { Routes as BrowserRoutes, Route } from 'react-router-dom';
-import { handleRSVPFormSubmit } from '../../../store/util/rsvpUtils';
 
 const Landing = lazy(async () => await import('../../pages/landing/Landing'))
 const RSVPForm = lazy(async () => await import('../../pages/rsvp-form/RSVPForm'))
@@ -16,7 +15,7 @@ export const Routes = () => {
       <BrowserRoutes>
         <Route path="/" element={<Landing />} />
         <Route path="/wedding-team" element={<WeddingTeam />} />
-        <Route path="/rsvp" element={<RSVPForm onSubmit={handleRSVPFormSubmit}/>} />
+        <Route path="/rsvp" element={<RSVPForm />} />
         <Route path="/gallery" element={<ImageGallery />} />
         <Route path="*" element={<PageNotFound />} />
       </BrowserRoutes>

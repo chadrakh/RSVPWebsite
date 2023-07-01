@@ -1,9 +1,9 @@
 export type RSVPData = {
     name: string;
-    telNumber: string;
+    phoneNumber: string;
     email: string;
     isAttending: 'Yes' | 'No';
     guestCount: string;
-    message: string;
+    additionalGuests: string;
   };
   

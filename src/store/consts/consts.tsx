@@ -19,3 +19,7 @@ export const TRAD_IMAGES: string[] = [
 
     // 'IMG_0641.JPEG', 'IMG_0670.JPEG', 'IMG_0673.JPEG', 'IMG_0678.JPEG', 'IMG_0674.JPEG', 'IMG_0639.JPEG', 'IMG_0690.JPEG', 'IMG_0622.JPEG', 'IMG_0588.JPEG', 'IMG_0681.JPEG', 'IMG_0573.JPEG'
   ];
+
+export  const EMAILJS_SERVICE_ID = 'service_lpwobfk';
+export  const EMAILJS_TEMPLATE_ID = 'template_9k137tu';
+export  const EMAILJS_PUBLIC_KEY = 'd3v9fY3bp6fzGBRd-';

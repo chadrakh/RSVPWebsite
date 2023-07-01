@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
+import emailjs from 'emailjs-com';
 import { FC, FormEvent, useState } from 'react';
 import StyledText from "../../common/Texts/StyledText";
 import { RSVPData } from '../../../store/consts/types';
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../../../store/consts/consts';
 
 const FormWrapper = styled.div`
   display: flex;
@@ -63,43 +65,49 @@ const Button = styled.button`
   }
 `;
 
-type RSVPFormProps = {
-  onSubmit: (guestData: RSVPData) => void;
-};
-
-const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
+const RSVPForm: FC = () => {
   const [name, setName] = useState('');
-  const [telNumber, setTelNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [isAttending, setIsAttending] = useState(false);
   // const [additionalGuests, setAdditionalGuests] = useState(false);
   const [guestCount, setGuestCount] = useState(0);
-  const [message, setMessage] = useState('');
+  const [additionalGuests, setAdditionalGuests] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
 
-
       if (name.length > 0) {
+        try {
           const guestData: RSVPData = {
               name: name,
-              telNumber: telNumber,
+              phoneNumber: phoneNumber,
               email: email,
               isAttending: isAttending ? 'Yes' : 'No',
               guestCount: guestCount.toString(),
-              message: message,
+              additionalGuests: additionalGuests ?? "None",
           };
-
-      onSubmit(guestData);
-
-      setName('');
-      setTelNumber('');
-      setEmail('');
-      setIsAttending(false);
-      // setAdditionalGuests(false);
-      setGuestCount(0);
-      setMessage('');
-    }
+    
+          await emailjs.send(
+            EMAILJS_SERVICE_ID, // Service ID
+            EMAILJS_TEMPLATE_ID, // Template ID
+            guestData,
+            EMAILJS_PUBLIC_KEY // Public key
+          );
+    
+          console.log('Email sent successfully!');
+          
+          // Reset the form state
+          setName('');
+          setPhoneNumber('');
+          setEmail('');
+          setIsAttending(false);
+          setGuestCount(0);
+          setAdditionalGuests('');
+        } catch (error) {
+          console.error('Email sending failed:', error);
+        }
+      }
   };
 
   return (
@@ -138,6 +146,8 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
           <Label>
             <Input
                 type="text"
+                name="name"
+                id="name"
                 placeholder="Full Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -147,14 +157,18 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
           <Label>
           <Input
             type="tel"
+            name="phoneNumber"
+            id="phoneNumber"
             placeholder="Phone Number"
-            value={telNumber.trim()}
-            onChange={(e) => setTelNumber(e.target.value)}
+            value={phoneNumber.trim()}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
           </Label>
           <Label>
           <Input
             type="email"
+            name="email"
+            id="email"
             placeholder="Email"
             value={email.trim()}
             onChange={(e) => setEmail(e.target.value)}
@@ -164,6 +178,8 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
               <StyledText type="body">Attending?</StyledText>
               <Input
                   type="checkbox"
+                  name="isAttending"
+                  id="isAttending"
                   checked={isAttending}
                   onChange={(e) => {
                       setIsAttending(e.target.checked);
@@ -172,9 +188,11 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
               />
           </InlineLabel>
           <Label>
-              <StyledText type="body">Number of guests:</StyledText>
+              <StyledText type="body">Total number of guests:</StyledText>
               <Input
                   type="number"
+                  name="guestCount"
+                  id="guestCount"
                   value={guestCount}
                   pattern="[0-9]{10}"
                   onChange={(e) => setGuestCount(Number(e.target.value))}
@@ -184,9 +202,11 @@ const RSVPForm: FC<RSVPFormProps> = ({ onSubmit }) => {
               <StyledText type="body">Please provide the names of any additional guests.</StyledText>
               <Input
                   type="text"
+                  name="additionalGuests"
+                  id="additionalGuests"
                   placeholder="Additional guests"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  value={additionalGuests}
+                  onChange={(e) => setAdditionalGuests(e.target.value)}
               />
           </Label>
 
