@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 import { FC, FormEvent, useState } from 'react';
 import StyledText from "../../common/Texts/StyledText";
 import { RSVPData } from '../../../store/consts/types';
+import { Button as MuiButton, Modal, Typography } from '@mui/material';
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../../../store/consts/consts';
 
 const FormWrapper = styled.div`
@@ -13,7 +14,7 @@ const FormWrapper = styled.div`
   opacity: 90%;
   margin: 4em;
   padding: 2em;
-`;
+`
 
 const Form = styled.form`
   padding: 1em;
@@ -23,27 +24,27 @@ const Form = styled.form`
   @media (min-width: 768px) {
     width: 55%;
   }
-`;
+`
 
 const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5em;
   color: #f7f7f7;
-`;
+`
 
 const InlineLabel = styled.label`
   display: flex;
   margin-bottom: 1.5em;
   color: #f7f7f7;
-`;
+`
 
 const Input = styled.input`
   padding: 0.5em;
   width: 100%;
   font-style: italic;
   color: #141414;
-`;
+`
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -63,7 +64,31 @@ const Button = styled.button`
   &:hover {
     background-color: #ccccb4;
   }
-`;
+`
+
+const ModalContentWrapper = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+  height: 100%;
+  padding: 2em;
+`
+
+const ModalText = styled(Typography)`
+  color: white;
+  text-align: center;
+  margin: 1em;
+  margin-inline: 5em;
+`
+
+const CloseButton = styled(MuiButton)`
+  margin-top: 1em;
+  font-size: 1.5em;
+  color: #ccccb4;
+`
 
 const RSVPForm: FC = () => {
   const [name, setName] = useState('');
@@ -73,6 +98,9 @@ const RSVPForm: FC = () => {
   // const [additionalGuests, setAdditionalGuests] = useState(false);
   const [guestCount, setGuestCount] = useState(0);
   const [additionalGuests, setAdditionalGuests] = useState('');
+
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
@@ -95,9 +123,8 @@ const RSVPForm: FC = () => {
             EMAILJS_PUBLIC_KEY // Public key
           );
     
-          console.log('Email sent successfully!');
+          setSuccessModalOpen(true);
           
-          // Reset the form state
           setName('');
           setPhoneNumber('');
           setEmail('');
@@ -106,8 +133,17 @@ const RSVPForm: FC = () => {
           setAdditionalGuests('');
         } catch (error) {
           console.error('Email sending failed:', error);
+          setErrorModalOpen(true);
         }
       }
+  };
+
+  const handleCloseSuccessModal = () => {
+    setSuccessModalOpen(false);
+  };
+
+  const handleCloseErrorModal = () => {
+    setErrorModalOpen(false);
   };
 
   return (
@@ -249,6 +285,22 @@ const RSVPForm: FC = () => {
             <Button type="submit">Submit</Button>
           </ButtonWrapper>
         </Form>
+
+        <Modal open={successModalOpen} onClose={handleCloseSuccessModal}>
+        <ModalContentWrapper>
+          <ModalText variant="h5">RSVP Submitted Successfully!</ModalText>
+          <ModalText variant="body1">Thank you for your RSVP and we look at forward to seeing you at the wedding.</ModalText>
+          <CloseButton onClick={handleCloseSuccessModal}>Close</CloseButton>
+        </ModalContentWrapper>
+        </Modal>
+
+        <Modal open={errorModalOpen} onClose={handleCloseErrorModal}>
+        <ModalContentWrapper>
+          <ModalText variant="h5">We failed to submit your RSVP</ModalText>
+          <ModalText variant="body1">Please contact the wedding host to RSVP manually, we apologise for any incovenience.</ModalText>
+          <CloseButton onClick={handleCloseErrorModal}>Close</CloseButton>
+        </ModalContentWrapper>
+        </Modal>
       </FormWrapper>
   );
 };
