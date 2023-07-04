@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import background from "../../../assets/background-dark-overlay.jpg";
+import backgroundAlt from "../../../assets/background-alternate-overlay.jpg";
 import PulseLoader from "react-spinners/PulseLoader";
 import { Suspense, ReactNode } from "react";
 import { useLocation } from "react-router-dom";
@@ -15,6 +16,7 @@ const BackgroundContainer = styled.div<{ isWeddingTeam: boolean }>`
 
   @media (max-width: 660px) {
     height: ${(props) => (props.isWeddingTeam ? "auto" : "100vh")};
+    background-image: url(${backgroundAlt});
   }
 `;
 
