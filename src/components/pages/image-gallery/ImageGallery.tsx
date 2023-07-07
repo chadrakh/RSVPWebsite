@@ -35,6 +35,7 @@ const NextButton = styled(NavigationButton)`
 `;
 
 const ImageGallery = () => {
+
   const [currentPage, setCurrentPage] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const [startX, setStartX] = useState(0);
@@ -83,6 +84,8 @@ const ImageGallery = () => {
   const [itemsPerPage, setItemsPerPage] = useState(calculateItemsPerPage);
 
   useEffect(() => {
+    document.title = 'Gallery';
+    
     const updateItemsPerPage = () => {
       setItemsPerPage(calculateItemsPerPage);
     };

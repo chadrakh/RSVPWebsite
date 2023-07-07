@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styled from '@emotion/styled';
 import StyledText from '../../common/Texts/StyledText';
 import img1 from '../../../assets/WeddingTeam/IMG-01.jpeg';
@@ -47,6 +48,10 @@ const StyledImage = styled.img`
 `;
 
 const WeddingTeam = () => {
+  useEffect(() => {
+    document.title = 'Wedding Team';
+  }, []);
+
   return (
     <DisplayWrapper>
       <StyledText type="subheader" size="3em">Bridesmaids</StyledText>
