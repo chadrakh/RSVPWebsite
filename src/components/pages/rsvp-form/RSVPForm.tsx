@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import emailjs from 'emailjs-com';
-import { FC, FormEvent, useState } from 'react';
+import { FC, useEffect, useState, FormEvent } from 'react';
 import StyledText from "../../common/Texts/StyledText";
 import { RSVPData } from '../../../store/consts/types';
 import { Button as MuiButton, Modal, Typography } from '@mui/material';
@@ -32,11 +32,14 @@ const CloseButton = styled(MuiButton)`
 `
 
 const RSVPForm: FC = () => {
+  useEffect(() => {
+    document.title = 'RSVP';
+  }, []);
+
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [isAttending, setIsAttending] = useState(false);
-  // const [additionalGuests, setAdditionalGuests] = useState(false);
   const [guestCount, setGuestCount] = useState(0);
   const [additionalGuests, setAdditionalGuests] = useState('');
 

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styled from '@emotion/styled';
 import StyledText from "../../common/Texts/StyledText";
 import PrimaryButton from '../../common/Buttons/PrimaryButton';
@@ -29,6 +30,10 @@ const Body = styled.div`
 `
 
 const Landing = () => {
+  useEffect(() => {
+    document.title = 'Home';
+  }, []);
+
     const navigate = useNavigate();
   
     const handleRSVPClick = () => {
