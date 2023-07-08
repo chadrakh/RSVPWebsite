@@ -17,7 +17,6 @@ const StyledPrimary = styled.h1<TextProps>`
   font-family: "Tangerine", sans-serif;
   font-weight: normal;
   margin-bottom: 0.5em;
-  white-space: nowrap;
 `;
 
 const StyledSecondary = styled.h2<TextProps>`
@@ -27,7 +26,6 @@ const StyledSecondary = styled.h2<TextProps>`
   font-weight: ${(props) => (props.bold ? "bold" : "normal")};
   font-family: "Tangerine", sans-serif;
   margin-bottom: 0.5em;
-  white-space: nowrap;
 `;
 
 const StyledBody = styled.p<TextProps>`
@@ -36,7 +34,6 @@ const StyledBody = styled.p<TextProps>`
   margin-bottom: ${(props) => props.marginBottom}em;
   font-style: ${(props) => (props.italics ? "italic" : "normal")};
   font-weight: ${(props) => (props.bold ? "bold" : "normal")};
-  white-space: nowrap;
 `;
 
 type Props = {

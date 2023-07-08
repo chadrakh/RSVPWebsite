@@ -91,31 +91,43 @@ const RSVPForm: FC = () => {
       <FormWrapper>
           <StyledText 
             type="header"
-            size="4em">
+            size="3em">
             RSVP
           </StyledText>
 
           <StyledText 
             type="header"
-            size="3em"
-            marginBottom={1}
+            size="2em"
           >
             August 26th 2023
           </StyledText>
 
           <StyledText 
             type="body"
-            size="medium"
+            size="large"
           >
-            Ceremony - Bury Town Hall, BL9 0ST
+            Ceremony
+          </StyledText>
+          <StyledText 
+            type="body"
+            size="medium"
+            marginBottom={0.8}
+          >
+            Bury Town Hall, BL9 0ST
           </StyledText>
 
+          <StyledText 
+            type="body"
+            size="large"
+          >
+            Reception
+          </StyledText>
           <StyledText 
             type="body"
             size="medium"
             marginBottom={1}
           >
-            Reception - The Empire Suite, OL9 6BA
+            The Empire Suite, OL9 6BA
           </StyledText>
           
           <Form onSubmit={handleSubmit}>
@@ -163,12 +175,12 @@ const RSVPForm: FC = () => {
               />
           </InlineFormLabel>
           <FormLabel>
-              <StyledText type="body">Please provide the full name of the additional guest.</StyledText>
+              <StyledText type="body">Enter the full name of the additional guest.</StyledText>
               <FormInput
                   type="text"
                   name="additionalGuests"
                   id="additionalGuests"
-                  placeholder="Additional guest name (Max. 1)"
+                  placeholder="Additional guest (Max. 1)"
                   value={additionalGuests}
                   onChange={(e) => setAdditionalGuests(e.target.value)}
               />
