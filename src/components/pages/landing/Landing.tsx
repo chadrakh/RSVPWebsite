@@ -52,8 +52,8 @@ const Landing = () => {
   
         <Body>
           <StyledText type="body" size="large">August 26th 2023</StyledText>
-          <StyledText type="body" padding={2} size="large">Bury Town Hall</StyledText>
-          <StyledText type="body" padding={1} size="large">BL9 0ST</StyledText>
+          <StyledText type="body" marginTop={2} size="large">Bury Town Hall</StyledText>
+          <StyledText type="body" marginTop={1} size="large">BL9 0ST</StyledText>
           <CountdownTimer targetDate={WEDDING_DATE} />
           <PrimaryButton onClick={handleRSVPClick}>RSVP</PrimaryButton>
         </Body>

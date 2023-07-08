@@ -42,44 +42,46 @@ const RSVPForm: FC = () => {
   const [isAttending, setIsAttending] = useState(false);
   const [guestCount, setGuestCount] = useState(0);
   const [additionalGuests, setAdditionalGuests] = useState('');
+  const [hasAdditionalGuest, setHasAdditionalGuest] = useState(false);
 
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const [errorModalOpen, setErrorModalOpen] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      if (name.length > 0) {
-        try {
-          const guestData: RSVPData = {
-              name: name,
-              phoneNumber: phoneNumber,
-              email: email,
-              isAttending: isAttending ? 'Yes' : 'No',
-              guestCount: guestCount.toString(),
-              additionalGuests: additionalGuests ?? "None",
-          };
-    
-          await emailjs.send(
-            EMAILJS_SERVICE_ID, // Service ID
-            EMAILJS_TEMPLATE_ID, // Template ID
-            guestData,
-            EMAILJS_PUBLIC_KEY // Public key
-          );
-    
-          setSuccessModalOpen(true);
-          
-          setName('');
-          setPhoneNumber('');
-          setEmail('');
-          setIsAttending(false);
-          setGuestCount(0);
-          setAdditionalGuests('');
-        } catch (error) {
-          console.error('Email sending failed:', error);
-          setErrorModalOpen(true);
-        }
+    if (name.length > 0) {
+      try {
+        const guestData: RSVPData = {
+          name: name,
+          phoneNumber: phoneNumber,
+          email: email,
+          isAttending: isAttending ? 'Yes' : 'No',
+          guestCount: guestCount.toString(),
+          additionalGuests: hasAdditionalGuest ? additionalGuests : "No",
+        };
+
+        await emailjs.send(
+          EMAILJS_SERVICE_ID, // Service ID
+          EMAILJS_TEMPLATE_ID, // Template ID
+          guestData,
+          EMAILJS_PUBLIC_KEY // Public key
+        );
+
+        setSuccessModalOpen(true);
+
+        setName('');
+        setPhoneNumber('');
+        setEmail('');
+        setIsAttending(false);
+        setGuestCount(0);
+        setAdditionalGuests('');
+        setHasAdditionalGuest(false);
+      } catch (error) {
+        console.error('Email sending failed:', error);
+        setErrorModalOpen(true);
       }
+    }
   };
 
   const handleCloseSuccessModal = () => {
@@ -91,52 +93,50 @@ const RSVPForm: FC = () => {
   };
 
   return (
-      <FormWrapper>
-          <StyledText 
-            type="header"
-            size="xx-large">
-            RSVP
-          </StyledText>
+    <FormWrapper>
+      <StyledText
+        type="header"
+        size="3em"
+      >
+        RSVP
+      </StyledText>
 
-          <StyledText 
-            type="body"
-            size="medium">
-            Saturday, 26 August, 2023
-          </StyledText>
+      <StyledText
+        type="body"
+        size="large"
+        marginBottom={1}
+      >
+        Saturday, 26 August, 2023
+      </StyledText>
 
-          <StyledText 
-            type="body"
-            size="medium">
-            12:00 PM Ceremony
-          </StyledText>
+      <StyledText
+        type="body"
+        size="medium"
+      >
+        Ceremony @ Bury Town Hall, BL9 0ST
+      </StyledText>
 
-          <StyledText 
-            type="body"
-            size="medium">
-            Bury Hall BL9 0ST
-          </StyledText>
+      <StyledText
+        type="body"
+        size="medium"
+        marginBottom={1}
+      >
+        Reception @ The Empire Suite, OL9 6BA
+      </StyledText>
 
-          <StyledText
-              type="header"
-              size="xx-large"
-              padding={0.7}
-          >
-            Will you attend?
-          </StyledText>
-          
-          <Form onSubmit={handleSubmit}>
-          <FormLabel>
-            <FormInput
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Full Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-            />
-          </FormLabel>
-          <FormLabel>
+      <Form onSubmit={handleSubmit}>
+        <FormLabel>
+          <FormInput
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </FormLabel>
+        <FormLabel>
           <FormInput
             type="tel"
             name="phoneNumber"
@@ -145,8 +145,8 @@ const RSVPForm: FC = () => {
             value={phoneNumber.trim()}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-          </FormLabel>
-          <FormLabel>
+        </FormLabel>
+        <FormLabel>
           <FormInput
             type="email"
             name="email"
@@ -155,99 +155,86 @@ const RSVPForm: FC = () => {
             value={email.trim()}
             onChange={(e) => setEmail(e.target.value)}
           />
-          </FormLabel>
-          <InlineFormLabel>
-              <StyledText type="body">Attending?</StyledText>
-              <FormInput
-                  type="checkbox"
-                  name="isAttending"
-                  id="isAttending"
-                  checked={isAttending}
-                  onChange={(e) => {
-                      setIsAttending(e.target.checked);
-                      setGuestCount(1);
-                  }}
-              />
-          </InlineFormLabel>
+        </FormLabel>
+        <InlineFormLabel>
+          <StyledText 
+            type="body"
+            size="large"
+          >
+            Attending?</StyledText>
+          <FormInput
+            type="checkbox"
+            name="isAttending"
+            id="isAttending"
+            checked={isAttending}
+            onChange={(e) => {
+              setIsAttending(e.target.checked);
+              setGuestCount(1);
+            }}
+          />
+          <StyledText 
+            type="body"
+            size="large"
+          >
+            Additional guest?
+          </StyledText>
+          <FormInput
+            type="checkbox"
+            name="hasAdditionalGuest"
+            id="hasAdditionalGuest"
+            checked={hasAdditionalGuest}
+            onChange={(e) => setHasAdditionalGuest(e.target.checked)}
+          />
+        </InlineFormLabel>
+        {/* <InlineFormLabel>
+          <StyledText 
+            type="body"
+            size="large"
+          >
+            Additional guest?
+          </StyledText>
+          <FormInput
+            type="checkbox"
+            name="hasAdditionalGuest"
+            id="hasAdditionalGuest"
+            checked={hasAdditionalGuest}
+            onChange={(e) => setHasAdditionalGuest(e.target.checked)}
+          />
+        </InlineFormLabel> */}
+        {hasAdditionalGuest && (
           <FormLabel>
-              <StyledText type="body">Total number of guests:</StyledText>
-              <FormInput
-                  type="number"
-                  name="guestCount"
-                  id="guestCount"
-                  value={guestCount}
-                  pattern="[0-9]{10}"
-                  onChange={(e) => setGuestCount(Number(e.target.value))}
-              />
+            <StyledText type="body">Please enter the full name of the additional guest.</StyledText>
+            <FormInput
+              type="text"
+              name="additionalGuests"
+              id="additionalGuests"
+              placeholder="Additional guest (Max. 1)"
+              value={additionalGuests}
+              onChange={(e) => setAdditionalGuests(e.target.value)}
+            />
           </FormLabel>
-          <FormLabel>
-              <StyledText type="body">Please provide the names of any additional guests.</StyledText>
-              <FormInput
-                  type="text"
-                  name="additionalGuests"
-                  id="additionalGuests"
-                  placeholder="Additional guests"
-                  value={additionalGuests}
-                  onChange={(e) => setAdditionalGuests(e.target.value)}
-              />
-          </FormLabel>
+        )}
+        <ButtonWrapper>
+          <Button type="submit">Submit</Button>
+        </ButtonWrapper>
+      </Form>
 
-            {/*{isAttending && (*/}
-            {/*    <>*/}
-            {/*        <StyledText type="body">Additional Guests?</StyledText>*/}
-            {/*        <Input*/}
-            {/*            type="checkbox"*/}
-            {/*            checked={additionalGuests}*/}
-            {/*            onChange={(e) => {*/}
-            {/*                setAdditionalGuests(e.target.checked);*/}
-            {/*            }}*/}
-            {/*        />*/}
-            {/*        */}
-            {/*    </>*/}
-            {/*)}*/}
-          {/*{isAttending && additionalGuests && (*/}
-          {/*    <>*/}
-          {/*      <Label>*/}
-          {/*        Number of Guests:*/}
-          {/*        <Input*/}
-          {/*            type="number"*/}
-          {/*            value={guestCount}*/}
-          {/*            pattern="[0-9]{10}"*/}
-          {/*            onChange={(e) => setGuestCount(Number(e.target.value))}*/}
-          {/*        />*/}
-          {/*      </Label>*/}
-          {/*      <Label>*/}
-          {/*        Message:*/}
-          {/*        <Input*/}
-          {/*            type="text"*/}
-          {/*            placeholder="Additional guests"*/}
-          {/*            value={message}*/}
-          {/*            onChange={(e) => setMessage(e.target.value)}*/}
-          {/*        />*/}
-          {/*      </Label>*/}
-          {/*    </>*/}
-          {/*)}*/}
-          <ButtonWrapper>
-            <Button type="submit">Submit</Button>
-          </ButtonWrapper>
-        </Form>
-
-        <Modal open={successModalOpen} onClose={handleCloseSuccessModal}>
+      <Modal open={successModalOpen} onClose={handleCloseSuccessModal}>
         <ModalContentWrapper>
           <ModalText variant="h5">RSVP Submitted Successfully!</ModalText>
-          <ModalText variant="body1">Thank you for your RSVP and we look at forward to seeing you at the wedding.</ModalText>
+          <ModalText variant="body1">Thank you for your RSVP and we look forward to seeing you at the wedding.</ModalText>
           <CloseButton onClick={handleCloseSuccessModal}>Close</CloseButton>
         </ModalContentWrapper>
-        </Modal>
+      </Modal>
 
-        <Modal open={errorModalOpen} onClose={handleCloseErrorModal}>
+      <Modal open={errorModalOpen} onClose={handleCloseErrorModal}>
         <ModalContentWrapper>
           <ModalText variant="h5">We failed to submit your RSVP</ModalText>
-          <ModalText variant="body1">Please contact the wedding host to RSVP manually, we apologise for any incovenience.</ModalText>
+          <ModalText variant="body1">Please contact the wedding host to RSVP manually, we apologize for any inconvenience.</ModalText>
           <CloseButton onClick={handleCloseErrorModal}>Close</CloseButton>
         </ModalContentWrapper>
-        </Modal>
-      </FormWrapper>
+      </Modal>
+    </FormWrapper>
   );
 };
 
