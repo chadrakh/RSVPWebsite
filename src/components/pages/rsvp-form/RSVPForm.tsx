@@ -125,9 +125,18 @@ const RSVPForm: FC = () => {
           <StyledText 
             type="body"
             size="medium"
-            marginBottom={1}
+            marginBottom={2}
           >
             The Empire Suite, OL9 6BA
+          </StyledText>
+
+          <StyledText 
+            type="body"
+            size="small"
+            italics
+            marginBottom={1}
+          >
+            Please note, no children unless approved by the couple.
           </StyledText>
           
           <Form onSubmit={handleSubmit}>
@@ -158,7 +167,7 @@ const RSVPForm: FC = () => {
             name="email"
             id="email"
             placeholder="Email"
-            value={email.trim()}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           </FormLabel>
