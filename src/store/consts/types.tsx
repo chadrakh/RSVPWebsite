@@ -3,7 +3,6 @@ export type RSVPData = {
     phoneNumber: string;
     email: string;
     isAttending: 'Yes' | 'No';
-    guestCount: string;
     additionalGuests: string;
   };
   
