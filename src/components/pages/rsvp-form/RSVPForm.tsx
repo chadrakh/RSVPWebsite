@@ -110,6 +110,7 @@ const RSVPForm: FC = () => {
           </StyledText>
           <StyledText 
             type="body"
+            align="center"
             size="medium"
             marginBottom={0.8}
           >
@@ -124,6 +125,7 @@ const RSVPForm: FC = () => {
           </StyledText>
           <StyledText 
             type="body"
+            align="center"
             size="medium"
             marginBottom={2}
           >
@@ -132,6 +134,7 @@ const RSVPForm: FC = () => {
 
           <StyledText 
             type="body"
+            align="center"
             size="small"
             italics
             marginBottom={1}
@@ -184,7 +187,12 @@ const RSVPForm: FC = () => {
               />
           </InlineFormLabel>
           <FormLabel>
-              <StyledText type="body">Enter the full name of the additional guest.</StyledText>
+              <StyledText 
+                type="body" 
+                align="center"
+              >
+                Enter the full name of the additional guest.
+              </StyledText>
               <FormInput
                   type="text"
                   name="additionalGuests"
