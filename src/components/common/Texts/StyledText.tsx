@@ -6,10 +6,12 @@ type TextProps = {
   italics?: boolean;
   marginTop?: number;
   marginBottom?: number;
+  align?: string;
   size?: "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large" | "2em" | "3em" |"4em" | "6em";
 };
 
 const StyledPrimary = styled.h1<TextProps>`
+  text-align: ${(props) => props.align};
   font-size: ${(props) => (props.size ?? "large")};
   margin-top: ${(props) => props.marginTop}em;
   font-style: ${(props) => (props.italics ? "italic" : "normal")};
@@ -20,6 +22,7 @@ const StyledPrimary = styled.h1<TextProps>`
 `;
 
 const StyledSecondary = styled.h2<TextProps>`
+  text-align: ${(props) => props.align};
   font-size: ${(props) => (props.size ?? "large")};
   margin-top: ${(props) => props.marginTop}em;
   font-style: ${(props) => (props.italics ? "italic" : "normal")};
@@ -29,6 +32,7 @@ const StyledSecondary = styled.h2<TextProps>`
 `;
 
 const StyledBody = styled.p<TextProps>`
+  text-align: ${(props) => props.align};
   font-size: ${(props) => (props.size ?? "large")};
   margin-top: ${(props) => props.marginTop}em;
   margin-bottom: ${(props) => props.marginBottom}em;
@@ -39,6 +43,7 @@ const StyledBody = styled.p<TextProps>`
 type Props = {
   children: ReactNode;
   type: "header" | "subheader" | "body";
+  align?: "left" | "center" | "right";
   bold?: boolean;
   italics?: boolean;
   marginTop?: number;
@@ -46,22 +51,22 @@ type Props = {
   size?: "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large" | "2em" | "3em" |"4em" | "6em";
 };
 
-const StyledText: FC<Props> = ({ type, children, bold, italics, marginTop, marginBottom, size }) => {
+const StyledText: FC<Props> = ({ type, children, align, bold, italics, marginTop, marginBottom, size }) => {
   return (
     <>
       {type === "body" && (
-        <StyledBody bold={bold} italics={italics} marginTop={marginTop} marginBottom={marginBottom} size={size}>
+        <StyledBody align={align} bold={bold} italics={italics} marginTop={marginTop} marginBottom={marginBottom} size={size}>
           {children}
         </StyledBody>
       )}
       
       {type === "header" && 
-      <StyledPrimary bold={bold} italics={italics} marginTop={marginTop} marginBottom={marginBottom} size={size}>
+      <StyledPrimary align={align} bold={bold} italics={italics} marginTop={marginTop} marginBottom={marginBottom} size={size}>
         {children}
       </StyledPrimary>}
 
       {type === "subheader" &&
-       <StyledSecondary bold={bold} italics={italics} marginTop={marginTop} marginBottom={marginBottom} size={size}>
+       <StyledSecondary align={align} bold={bold} italics={italics} marginTop={marginTop} marginBottom={marginBottom} size={size}>
         {children}
       </StyledSecondary>}
     </>
