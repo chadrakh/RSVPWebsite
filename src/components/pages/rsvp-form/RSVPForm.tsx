@@ -113,7 +113,7 @@ const RSVPForm: FC = () => {
             size="medium"
             marginBottom={0.8}
           >
-            Bury Town Hall, BL9 0ST
+            12:00 | Bury Town Hall, BL9 0ST
           </StyledText>
 
           <StyledText 
@@ -127,7 +127,7 @@ const RSVPForm: FC = () => {
             size="medium"
             marginBottom={2}
           >
-            The Empire Suite, OL9 6BA
+            18:30 | The Empire Suite, OL9 6BA
           </StyledText>
 
           <StyledText 
