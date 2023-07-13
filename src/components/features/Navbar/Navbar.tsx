@@ -12,6 +12,10 @@ const Nav = styled.nav`
 const LeftNav = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const RightNav = styled.div`
