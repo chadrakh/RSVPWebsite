@@ -60,6 +60,7 @@ const NavBar = () => {
         </LeftNav>
         <RightNav>
           <NavLink to="/rsvp">RSVP</NavLink>
+          <NavLink to="/directions">Directions</NavLink>
           <NavLink to="/itinerary">Itinerary</NavLink>
           {/* <NavLink to="/wedding-team">Wedding Team</NavLink> */}
           <NavLink to="/gallery">Gallery</NavLink>

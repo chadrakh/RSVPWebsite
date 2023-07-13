@@ -139,7 +139,7 @@ const RSVPForm: FC = () => {
             italics
             marginBottom={1}
           >
-            Please note, no children unless approved by the couple.
+            Please note, no children under 18 unless approved directly by the couple.
           </StyledText>
           
           <Form onSubmit={handleSubmit}>
@@ -190,17 +190,26 @@ const RSVPForm: FC = () => {
               <StyledText 
                 type="body" 
                 align="center"
+                marginBottom={0.5}
               >
-                Enter the full name of the additional guest.
+                Please enter the full name of the additional guest.
               </StyledText>
               <FormInput
                   type="text"
                   name="additionalGuests"
                   id="additionalGuests"
-                  placeholder="Additional guest (Max. 1)"
+                  placeholder="Additional guest"
                   value={additionalGuests}
                   onChange={(e) => setAdditionalGuests(e.target.value)}
               />
+              <StyledText 
+                type="body"
+                italics
+                size="small"
+                marginTop={0.5}
+              >
+                Each guest is entitled to ONE additional guest.
+              </StyledText>
           </FormLabel>
           <ButtonWrapper>
             <Button type="submit">Submit</Button>
