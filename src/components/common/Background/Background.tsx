@@ -5,7 +5,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { Suspense, ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 
-const BackgroundContainer = styled.div<{ isWeddingTeam: boolean }>`
+const BackgroundContainer = styled.div<{ isDirectionsPage: boolean }>`
   background-image: url(${background});
   background-size: cover;
   background-position: center;
@@ -15,7 +15,7 @@ const BackgroundContainer = styled.div<{ isWeddingTeam: boolean }>`
   position: relative;
 
   @media (max-width: 660px) {
-    height: ${(props) => (props.isWeddingTeam ? "auto" : "100vh")};
+    height: ${(props) => (props.isDirectionsPage ? "auto" : "100vh")};
     background-image: url(${backgroundAlt});
   }
 `;
@@ -34,11 +34,11 @@ interface BackgroundProps {
 
 const Background = ({ children }: BackgroundProps) => {
   const location = useLocation();
-  const isWeddingTeam =
-    location.pathname === "/wedding-team";
+  const isDirectionsPage =
+    location.pathname === "/directions";
 
   return (
-    <BackgroundContainer isWeddingTeam={isWeddingTeam}>
+    <BackgroundContainer isDirectionsPage={isDirectionsPage}>
       <Suspense fallback={<LoaderContainer><PulseLoader color="#ffffff" /></LoaderContainer>}>
         {children}
       </Suspense>
