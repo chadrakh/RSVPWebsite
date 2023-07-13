@@ -3,6 +3,7 @@ import { Routes as BrowserRoutes, Route } from 'react-router-dom';
 
 const Landing = lazy(async () => await import('../../pages/landing/Landing'))
 const RSVPForm = lazy(async () => await import('../../pages/rsvp-form/RSVPForm'))
+const Directions = lazy(async () => await import('../../pages/directions/Directions'))
 // const WeddingTeam = lazy(async () => await import('../../pages/wedding-team/WeddingTeam'))
 const Intinerary = lazy(async () => await import('../../pages/itinerary/Itinerary'))
 const ImageGallery = lazy(async () => await import('../../pages/image-gallery/ImageGallery'))
@@ -17,6 +18,7 @@ export const Routes = () => {
         <Route path="/" element={<Landing />} />
         {/* <Route path="/wedding-team" element={<WeddingTeam />} /> */}
         <Route path="/rsvp" element={<RSVPForm />} />
+        <Route path="/directions" element={<Directions />} />
         <Route path="/rsvp" element={<Intinerary />} />
         <Route path="/gallery" element={<ImageGallery />} />
         <Route path="*" element={<PageNotFound />} />
