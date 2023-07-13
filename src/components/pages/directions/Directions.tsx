@@ -94,25 +94,25 @@ const Directions: FC = () => {
     {
       name: 'Premier Inn Oldham Broadway',
       address: 'The Broadway, Oldham OL9 8DW',
-      bookingLink: 'https://www.premierinn.com/gb/en/hotels/england/greater-manchester/oldham/oldham-broadway.html?INNID=OLDWHI&ARRdd=26&ARRmm=08&ARRyyyy=2023&NIGHTS=1&ROOMS=1&ADULT1=2&CHILD1=0&COT1=0&INTTYP1=DB&SID=4&ISH=true&BRAND=PI&CID=GHF_GB_GoogleSearch_desktop_selected+OLDWHI&gclid=CjwKCAjwwb6lBhBJEiwAbuVUSt46eM2gGe2J3YUva8tHwuNphBjkIdJxLwrNt2aypp2i9JpZerofoBoCJKwQAvD_BwE',
+      bookingLink: 'https://www.premierinn.com/gb/en/hotels/england/greater-manchester/oldham/oldham-broadway.html',
       mainImg: oldhamPremierInn,
     },
     {
       name: 'Premier Inn Bury',
       address: 'Knowsley St, Bury BL9 0SW',
-      bookingLink: 'https://www.premierinn.com/gb/en/hotels/england/greater-manchester/manchester/manchester-bury.html?INNID=BURTHY&ARRdd=26&ARRmm=08&ARRyyyy=2023&NIGHTS=1&ROOMS=1&ADULT1=2&CHILD1=0&COT1=0&INTTYP1=DB&SID=4&ISH=true&BRAND=PI&CID=GHF_GB_GoogleSearch_desktop_selected+BURTHY&gclid=CjwKCAjwwb6lBhBJEiwAbuVUStwJQgYk6xg8bxmjP7LfQ2-YNIF40WvGBcTOaFTbgZrQKlihmc45BxoC7Y0QAvD_BwE',
+      bookingLink: 'https://www.premierinn.com/gb/en/hotels/england/greater-manchester/manchester/manchester-bury.html',
       mainImg: buryPremierInn,
     },
     {
       name: 'Travelodge Bury',
       address: 'Pilsworth Rd, Bury BL9 8RN',
-      bookingLink: 'https://www.travelodge.co.uk/hotels/297/Bury-hotel?checkIn=26/08/2023&checkOut=27/08/2023&rooms[0][adults]=2&rooms[0][children]=0',
+      bookingLink: 'https://www.travelodge.co.uk/hotels/297/Bury-hotel',
       mainImg: buryTravelodge,
     },
     {
       name: '247Hotel Oldham',
       address: 'Manchester St, Oldham OL8 4AS',
-      bookingLink: 'https://bookings11.rmscloud.com/Rates/Index/6584/18/?A=2023-08-26&D=2023-08-27&Ad=2&C=0&I=0#!/rooms',
+      bookingLink: 'https://www.247hotel.com/',
       mainImg: oldham247Hotel,
     },
   ];
