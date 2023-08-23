@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from '@emotion/styled';
-import itinerary from '../../../assets/Itinerary.jpg';
+import itinerary from '../../../assets/Wedding-Itinerary.jpg';
 
 const ItineraryContainer = styled.div`
   display: flex;
