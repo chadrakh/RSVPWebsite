@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import styled from '@emotion/styled';
 import StyledText from "../../common/Texts/StyledText";
 import PrimaryButton from '../../common/Buttons/PrimaryButton';
-import CountdownTimer from '../../common/Countdown/CountdownTimer';
-import { WEDDING_DATE } from '../../../store/consts/consts';
+// import CountdownTimer from '../../common/Countdown/CountdownTimer';
+// import { WEDDING_DATE } from '../../../store/consts/consts';
 import { useNavigate } from 'react-router';
 
 const Header = styled.div`
@@ -54,8 +54,8 @@ const Landing = () => {
           <StyledText type="body" size="large">August 26th 2023</StyledText>
           <StyledText type="body" marginTop={2} size="large">Bury Town Hall</StyledText>
           <StyledText type="body" marginTop={1} size="large">BL9 0ST</StyledText>
-          <CountdownTimer targetDate={WEDDING_DATE} />
-          <PrimaryButton onClick={handleRSVPClick}>RSVP</PrimaryButton>
+          {/* <CountdownTimer targetDate={WEDDING_DATE} /> */}
+          <PrimaryButton padding={1} onClick={handleRSVPClick}>RSVP</PrimaryButton>
         </Body>
       </>
     );
