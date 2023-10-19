@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import PasswordProtection from './components/common/Password-Protection/PasswordProtection';
+// import PasswordProtection from './components/common/Password-Protection/PasswordProtection';
 import Background from './components/common/Background/Background';
 import { Routes as BrowserRoutes, Route } from 'react-router-dom';
 import NavBar from './components/features/Navbar/Navbar';
@@ -13,7 +13,7 @@ import ImageGallery from './components/pages/image-gallery/ImageGallery';
 const App = () => {
   return (
     <>
-      <PasswordProtection>
+      {/* <PasswordProtection> */}
         <Router>
           <Background>
             <NavBar />
@@ -27,7 +27,7 @@ const App = () => {
             </BrowserRoutes>
           </Background>
         </Router>
-      </PasswordProtection>
+      {/* </PasswordProtection> */}
     </>
   );
 };
